@@ -2,7 +2,7 @@
 
 import sys
 import base64
-# import this
+from Crypto.Util.number import long_to_bytes
 
 if sys.version_info.major == 2:
     print("You are running Python 2, which is no longer supported. Please update to Python 3.")
@@ -25,3 +25,7 @@ print(bytes.fromhex(hex).decode())
 # Base64 encoding: the hex string is turned into raw bytes, then those bytes are encoded as Base64
 base_64 = "72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
 print(base64.b64encode(bytes.fromhex(base_64)).decode())
+
+# Integer decoding: the long integer is turned into raw bytes, then decode into text
+big_integer = 11515195063862318899931685488813747395775516287289682636499965282714637259206269
+print(long_to_bytes(big_integer).decode())
